@@ -10,8 +10,14 @@ builder.Services.AddDbContext<FedDbContext>
     )
 );
 
+builder.Services.AddScoped<IFoodService, FoodService>();
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
+
+app.MapPost(
+    "/feds/",
+    async (FoodRequest foodRequest, IFoodService foodService) => await foodService.CreatedFood(foodRequest));
 
 app.Run();

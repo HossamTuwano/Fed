@@ -1,6 +1,6 @@
-namespace Fed.Models;
+namespace Fed;
 
-class Food
+public class Food
 {
     public Guid Id { get; set; }
     public string FoodName { get; set; }
